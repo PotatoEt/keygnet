@@ -101,7 +101,7 @@ def cal_loss_wass_gp(input,segments,vote_type,model,device,lambda_,training):
                 sorted_norms[j],sorted_indices[j]=torch.sort(norms[j])
                 #votes[j] = votes[j,sorted_indices[j],:]
 
-        for j in range(0,n-1):
+        for i in range(0,n-1):
             for k in range(i+1,n): 
                 # if vote_type==0:
                 wass_dist=torch.mean(torch.abs(sorted_norms[i]-sorted_norms[k]))
